@@ -1,0 +1,25 @@
+{% extends 'app.html' %}
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div class="card shadow mx-auto rounded-lg" style="width:25rem;">	
+    <div class="card-body">
+        <h3 class="card-title">Đăng Kí</h3>
+        <form method="POST"> 
+            {% load crispy_forms_tags %}  
+            {% csrf_token %}        
+            {{ form|crispy }} 
+            <button type="submit" class="btn btn-success">Đăng Kí</button>
+        </form>
+        Đăng Kí với:
+        <div class="social">
+            <a href="{% url 'social:begin' 'facebook' %}" class="fa fa-facebook"></a> 
+            <a href="{% url 'social:begin' 'google' %}" class="fa fa-google"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-instagram"></a>
+            <a href="{% url 'social:begin' 'github' %}" class="fa fa-github"></a>
+        </div>  
+    </div> 
+</div>    
+{% endblock %}
+ 

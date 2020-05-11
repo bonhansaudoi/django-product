@@ -1,0 +1,49 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+<title>{% block title %}{% endblock %}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% block meta %}{% endblock %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">	
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<link rel="icon" href="https://s5.gifyu.com/images/tiger-logo.png" type="image/x-icon"> 
+<link rel="stylesheet" href="{% static 'layouts/css/app.css' %}"  type="text/css"/>
+{% block head %}{% endblock %}
+</head>
+<body>
+<div id="app-top"> 
+    {% block top %}{% endblock %}
+</div> 
+
+<div id="app">
+    <div id="app-header"> 
+    {% block header %}{% endblock %}
+    </div>
+
+    <div id="app-content">
+        <!-- {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %} -->
+    {% block content %}{% endblock %}        
+    </div>  
+
+    <div id="app-footer">
+    {% block footer %}{% endblock %}  
+    </div>
+</div> 
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="{% static 'layouts/js/app.js' %}"></script>
+{% block script %}{% endblock %}	 
+</body>
+</html> 
+<!-- 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+-->

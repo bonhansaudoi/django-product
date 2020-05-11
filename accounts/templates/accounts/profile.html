@@ -1,0 +1,48 @@
+{% extends 'app.html' %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<div class="card shadow mx-auto rounded-lg" style="width: 25rem;">
+    <h5><a href="{% url 'home' %}">Trang chủ</a></h5>
+    <div class="card-body">
+        <h5 class="card-title">Thông tin tài khoản.</h5>
+        <div class="media">
+            <img class="rounded-circle account-img" src="{{ user.avatar.url }}" style="width: 50px; height: 50px;">
+            <div class="media-body ml-3">
+                <h5 class="account-heading">{{ user.first_name|capfirst }}</h2>
+                <p class="text-secondary">{{ user.email }}</p>
+            </div>
+        </div>
+        <h5 class="card-title">Cập nhật thông tin.</h5> 
+        {% include 'layouts/components/messages.html' %} 
+        <form method="POST" enctype = "multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group" style="width: 20rem;">
+                <div class="form-group">
+                    <label for="id_first_name">Tên:</label>
+                    <input type="text" name="first_name" value="{{user.first_name}}" id="id_first_name" class="form-control form-control-sm">
+                </div>
+                <div class="form-group">
+                    <label for="id_email">Email:</label>
+                    <input type="email" name="email" value="{{user.email}}" id="id_email" class="form-control form-control-sm">
+                </div>
+                <div class="form-group">
+                    <label for="id_avatar">Hình ảnh:</label>
+                    <input type="file" name="avatar" id="id_avatar"  class="clearablefileinput form-control-file" accept="image/*"> 
+                </div>
+                <button class="btn btn-outline-info btn-sm" type="submit">Cập nhật</button>
+                <a class="float-right" href="{% url 'password_change' %} ">Thay pasword mới?</a>
+            </fieldset>      
+        </form> 
+    
+        <!-- <form method="POST" enctype = "multipart/form-data">  
+            {% load crispy_forms_tags %}    
+            {% csrf_token %}
+            {{ form|crispy }}  
+            <button type="submit" class="btn btn-success">Đăng nhập</button>
+            <a class="float-right text-danger" href="{% url 'password_reset' %}">Quên Passsword?</a>
+        </form> -->
+
+    </div>
+</div>
+{% endblock %}
+ 

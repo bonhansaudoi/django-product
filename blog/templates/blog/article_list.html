@@ -1,0 +1,31 @@
+{% extends "app.html" %}
+{% block meta %}{% endblock %}
+{% block title %}{% endblock %}
+{% block style %}{% endblock %} 
+
+{% block header %}
+{% include 'blog/includes/Hnav.html' %} 
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">    
+    <div class="col-md">
+        <h1>Article List</h1>
+        {% for article in object_list %}
+        <ul>
+            <li>
+                <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+            </li>
+        </ul>
+        {% endfor %}
+    </div>
+  	<!---sidebar--------->
+    <div class="col-md-3">  
+        {% include 'blog/includes/aside_right.html' %}
+    </div>
+  </div>
+</div>        
+{% endblock %}
+
+{% block script %}{% endblock %}
