@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 from .forms import ContactForm
 
 class IntroView(generic.TemplateView):
-    template_name = "layouts/intro.html"
+    template_name = "layouts/index.html"
  
 
 def ContactView(request):
